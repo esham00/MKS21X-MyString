@@ -27,7 +27,7 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
 	for (int i = start; i < end; i++) {
 		sub += data[i];
 	}
-	return sub + "}";
+	return sub + "";
     }
     public String toString() {
 	//output format should be like a string output format
