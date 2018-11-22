@@ -55,7 +55,8 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
 	else {
 	    length = data.length;
 	}
-	//comparing the first character that doesn't match and subtracting a's int char value from data's int char value and returning it
+	//comparing the first character that doesn't match
+	// subtracting a's int char value from data's int char value if they don't match
 	for (int i = 0; i < length; i++) {
 	    if (data[i] != a.charAt(i)) {
 		return data[i] - a.charAt(i);
