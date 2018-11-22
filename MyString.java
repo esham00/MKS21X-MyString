@@ -21,26 +21,23 @@ public class MyString implements CharSequence {
 	if (start < 0 || end < 0 || end > data.length-1 || start > end) {
 	    throw new IndexOutOfBoundsException("Your index cannot be below 0 or longer than the amount of characters in your MyString");
 	}
+	//loop through data to add each individual char to the string
+	//System.out.print(sub) should be result in a string output format
 	String sub = "";
 	for (int i = start; i < end; i++) {
-	    sub += data[i];
+		sub += data[i];
 	}
-	return sub;
+	return sub + "";
     }
     public String toString() {
-	//output format should be {char, char, ..., char}
-	String output = "{";
+	//output format should be like a string output format
+	String output = "";
 	for (int i = 0; i < data.length; i++) {
-	    if (i == data.length-1) {
 		output += data[i];
-	    }
-	    else {
-		output += data[i] + ", ";
-	    }
 	}
-	return output += "}";
+	return output;
     }
-    // public T compareTo(CharSequence a) {
+    // public CharSequence compareTo(CharSequence a) {
     // 	//code
     // }
 }
