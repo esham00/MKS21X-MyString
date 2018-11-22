@@ -1,4 +1,4 @@
-public class MyString implements CharSequence {
+public class MyString implements CharSequence, Comparable<CharSequence> {
     private char[] data;
     public MyString(CharSequence s) {
         data = new char[s.length()];
@@ -27,7 +27,7 @@ public class MyString implements CharSequence {
 	for (int i = start; i < end; i++) {
 		sub += data[i];
 	}
-	return sub + "";
+	return sub + "}";
     }
     public String toString() {
 	//output format should be like a string output format
@@ -37,8 +37,31 @@ public class MyString implements CharSequence {
 	}
 	return output;
     }
-    // public CharSequence compareTo(CharSequence a) {
-    // 	//code
-    // }
+    public int compareTo(CharSequence a) {
+    	//exception: NullPointerException (if a is null)
+	if (a == null) {
+	    throw new NullPointerException();
+	}
+	//exception: ClassCastException (if a is not a CharSequence)
+	//code
+	//setting length to the shortest CharSequence
+	int length = 0;
+	if (a.length() > data.length) {
+	    length = data.length;
+	}
+	else if (a.length() < data.length) {
+	    length = a.length();
+	}
+	else {
+	    length = data.length;
+	}
+	//comparing the first character that doesn't match and subtracting a's int char value from data's int char value and returning it
+	for (int i = 0; i < length; i++) {
+	    if (data[i] != a.charAt(i)) {
+		return data[i] - a.charAt(i);
+	    }
+	}
+	return 0;
+    }
 }
     
