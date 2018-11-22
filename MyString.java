@@ -1,4 +1,4 @@
-public class MyString implements CharSequence, Comparable<CharSequence> {
+public class MyString implements CharSequence {
     private char[] data;
     public MyString(CharSequence s) {
         data = new char[s.length()];
@@ -22,9 +22,19 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
 	return sub;
     }
     public String toString() {
-	String output = "";
+	String output = "{";
 	for (int i = 0; i < data.length; i++) {
-	    output
+	    if (i == data.length-1) {
+		output += data[i];
+	    }
+	    else {
+		output += data[i] + ", ";
+	    }
+	}
+	return output += "}";
     }
+    // public T compareTo(CharSequence a) {
+    // 	//code
+    // }
 }
     
