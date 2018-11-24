@@ -42,8 +42,6 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
 	if (a == null) {
 	    throw new NullPointerException();
 	}
-	//exception: ClassCastException (if a is not a CharSequence)
-	//code
 	//setting length to the shortest CharSequence
 	int length = 0;
 	if (a.length() > data.length) {
@@ -56,11 +54,19 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
 	    length = data.length;
 	}
 	//comparing the first character that doesn't match
-	// subtracting a's int char value from data's int char value if they don't match
+	//subtracting a's int char value from data's int char value if they don't match
 	for (int i = 0; i < length; i++) {
 	    if (data[i] != a.charAt(i)) {
 		return data[i] - a.charAt(i);
 	    }
+	}
+	//in case a is longer than data, but their content matches
+	if (length != a.length()) {
+	    return -1;
+	}
+	//in case data is longer than a, but their content matches
+	if (length != data.length) {
+	    return 1;
 	}
 	return 0;
     }
