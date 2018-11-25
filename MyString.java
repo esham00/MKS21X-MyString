@@ -39,7 +39,7 @@ public class MyString implements CharSequence, Comparable<CharSequence> {
     }
     public int compareTo(CharSequence a) {
     	//exception: NullPointerException (if a is null)
-	if (a == null) {
+	if (a == null || this == null) {
 	    throw new NullPointerException();
 	}
 	//setting length to the shortest CharSequence
